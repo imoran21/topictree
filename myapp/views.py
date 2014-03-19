@@ -63,10 +63,6 @@ def slug(request, slug):
 
 	slug_branch = get_branch(slug)
 	if 'children' in slug_branch.keys():
-		kids_tittle = [x['title'] for x in slug_branch['children']]
-		kids_slug = [x['slug'] for x in slug_branch['children']]
-		slug_branch.update({'kids_title':kids_tittle})
-		slug_branch.update({'kids_slug':kids_slug})
 		return render(request, 'myapp/topical.html', slug_branch)
 	elif 'content' in slug_branch.keys():
 		return render(request, 'myapp/content.html', slug_branch)
