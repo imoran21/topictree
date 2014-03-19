@@ -72,4 +72,6 @@ def slug(request, slug):
 		return render(request, 'myapp/topical.html', slug_branch)
 	elif 'content' in slug_branch.keys():
 		return render(request, 'myapp/content.html', slug_branch)
+	else:
+		return redirect('home')
 
