@@ -58,49 +58,48 @@ I will highlight the main points of the code in my solution:
 Here is this function
 
 #views.py
----------------------------------------------------------------------------------------
-'''get branch takes in a slug value and returns the dictionary it lives in'''
-def get_branch(slug):
+	---------------------------------------------------------------------------------------
+	'''get_branch takes input a slug value and outputs the dictionary it is contained in or None'''
+	def get_branch(slug):
+	
+	
+		'''Grab data from json file '''
+		def retrieve_json(file_name):
+			jdata = open(file_name)
+			data = json.load(jdata)
+			jdata.close()
+			return data
+	
+		data = retrieve_json(JSON_FILE)
+	
+	
+	  
+		def find_slug_data(slug, dump):
+	    # if this is true then we are looking at a list of children dicts.
+			if isinstance(dump,list):
+	
+				for x in dump:
+				  # Find out if each child has the slug being passed
+					if not find_slug_data(slug, x) == None:
+						return find_slug_data(slug, x)
+						
+			if isinstance(dump,dict):
+				if dump['slug'] == slug:
+				  #success, exit recursion
+					return dump
+				elif 'children' in dump.keys():
+					return find_slug_data(slug, dump['children'])
+			else:
+			  #no slug with that value exists
+				return None
+	
+		return find_slug_data(slug, data)
+	
+	-----------------------------------------------------------------
 
-
-	'''Grab data from json file '''
-	def retrieve_json(file_name):
-		jdata = open(file_name)
-		data = json.load(jdata)
-		jdata.close()
-		return data
-
-	data = retrieve_json(JSON_FILE)
-
-
-  # wrapper function to support importing without loading json data
-	def find_slug_data(slug, dump):
-    # if this is true then we are looking at a list of children dicts.
-		if isinstance(dump,list):
-
-			for x in dump:
-			  # Find out if each child has the slug being passed
-				if not find_slug_data(slug, x) == None:
-					return find_slug_data(slug, x)
-					
-		if isinstance(dump,dict):
-			if dump['slug'] == slug:
-			  #success, exit recursion
-				return dump
-			elif 'children' in dump.keys():
-				return find_slug_data(slug, dump['children'])
-		else:
-		  #no slug with that value exists
-			return None
-
-	return find_slug_data(slug, data)
-
------------------------------------------------------------------
-
-2) I  pass the dictionary returned by this function into my template. I use the slug value passed through my urls into my view.
+2) I pass the dictionary returned by this function into my template. I use the slug value passed through my urls into my view.
 
 In regards to design, I just linked to some external bootstrap CDNs and added a basic homepage+nav bar.
-
 Any feedback is much appreciated
 
 Thanks!
