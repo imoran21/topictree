@@ -3,8 +3,8 @@ topictree
 
 Topic Tree
 
-This project is created to satisfy the requirements listed here
-topictree.herokuapp.com
+
+Project live @ topictree.herokuapp.com
 _____________________________________________________________________________________________________________________________________________________________________________________________
 
 
@@ -13,6 +13,8 @@ The Task
 You will create a Django project that allows the user to navigate around a hierarchical “topic tree”.  An example (small) topic tree could be something like:
 
 The structure of the topic tree and content is stored in a “JSON” data structure, with the following format:
+
+
 {
     "kind": "Topic",
     "title": "Stories & Literature",
@@ -35,7 +37,9 @@ The structure of the topic tree and content is stored in a “JSON” data struc
                     "slug": "emperors-new-clothes",
                     "content": "Many years ago there was an Emperor…”
                 },
-        ...
+
+        
+        
 The app should start by displaying the root node with a link to its children  (in the case of the example, the “Stories and Literature” node). Clicking through that link will display that node’s children, with links to its children etc. up until it reaches the leaf nodes where you display the content.
 The full JSON file to use for your testing can be downloaded from here or viewed here. The “slug” field can be used to build URLs for the pages, and the “content” field is what gets displayed on the content page.
 Note that this is a small topic tree; later, we will be testing your same code with larger topic trees, and it should be designed to work well for them too, without confusing the user or being slow.
