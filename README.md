@@ -95,6 +95,16 @@ Here is this function
 	
 		return find_slug_data(slug, data)
 	
+	#this renders template with the slug dict
+	def slug(request, slug):
+		slug_branch = get_branch(slug) 
+		if 'children' in slug_branch.keys():
+			return render(request, 'myapp/topical.html', slug_branch)
+		elif 'content' in slug_branch.keys():
+			return render(request, 'myapp/content.html', slug_branch)
+		else:
+			return redirect('home')
+		
 	-----------------------------------------------------------------
 
 2) I pass the dictionary returned by this function into my template. I use the slug value passed through my urls into my view.
