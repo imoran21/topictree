@@ -39,8 +39,6 @@ def get_branch(slug):
 				return dump
 			elif 'children' in dump.keys():
 				return find_slug_data(slug, dump['children'])
-			else:
-				pass
 
 		else:
 			return None
