@@ -13,30 +13,30 @@ The Task
 You will create a Django project that allows the user to navigate around a hierarchical “topic tree”.  An example (small) topic tree could be something like:
 
 The structure of the topic tree and content is stored in a “JSON” data structure, with the following format:
-
-
-{
-    "kind": "Topic",
-    "title": "Stories & Literature",
-    "slug": "stories-and-literature",
-    "children": [
-        {
-            "kind": "Topic",
-            "title": "Fairy Tales",
-            "slug": "fairy-tales",
-            "children": [
-                {
-                    "kind": "Text",
-                    "title": "Little Red Riding Hood",
-                    "slug": "little-red-riding-hood",
-                    "content": "Once upon a time there lived in a certain village…”
-                },
-                {
-                    "kind": "Text",
-                    "title": "The Emperor’s New Clothes",
-                    "slug": "emperors-new-clothes",
-                    "content": "Many years ago there was an Emperor…”
-                },
+	
+	
+	{
+	    "kind": "Topic",
+	    "title": "Stories & Literature",
+	    "slug": "stories-and-literature",
+	    "children": [
+	        {
+	            "kind": "Topic",
+	            "title": "Fairy Tales",
+	            "slug": "fairy-tales",
+	            "children": [
+	                {
+	                    "kind": "Text",
+	                    "title": "Little Red Riding Hood",
+	                    "slug": "little-red-riding-hood",
+	                    "content": "Once upon a time there lived in a certain village…”
+	                },
+	                {
+	                    "kind": "Text",
+	                    "title": "The Emperor’s New Clothes",
+	                    "slug": "emperors-new-clothes",
+	                    "content": "Many years ago there was an Emperor…”
+	                },
 
         
         
