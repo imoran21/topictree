@@ -37,7 +37,7 @@ The structure of the topic tree and content is stored in a “JSON” data struc
 	                    "slug": "emperors-new-clothes",
 	                    "content": "Many years ago there was an Emperor…”
 	                },
-	  {
+	{
 
         
         
@@ -54,7 +54,8 @@ I will highlight the main points of the code in my solution:
 
 1) Get data from JSON dictionary
     I used a recursive function that takes in a slug value and returns the dictionary containing the slug value.
-    Here is this function
+    
+Here is this function
 
 #views.py
 ---------------------------------------------------------------------------------------
@@ -96,10 +97,13 @@ def get_branch(slug):
 
 -----------------------------------------------------------------
 
-I just pass the dictionary returned by this function into my template. I use the slug value passed through my urls into my view.
+2) I  pass the dictionary returned by this function into my template. I use the slug value passed through my urls into my view.
 
 In regards to design, I just linked to some external bootstrap CDNs and added a basic homepage+nav bar.
 
+Any feedback is much appreciated
+
+Thanks!
 -Imran
 
 
