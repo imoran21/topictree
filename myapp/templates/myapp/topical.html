@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,400' rel='stylesheet' type='text/css'>
+
+
+<style type="text/css">
+
+        body{
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    	.kids{
+    		margin-left:4em;
+    	}
+</style>
+
+<br><br><br><br>
+
+<div class ="container">
+
+	<h3> [{{kind}}] {{title}} </h3>
+
+
+	{% for x in children %}
+
+	<p>
+		<div class = "kids">
+			<a href="/topictree/slug/{{x.slug}}"><h4>[{{x.kind}}] {{x.title}}</h4> </a>
+		</div>
+
+	</p>
+
+	{% endfor %}
+
+
+	<br><br>
+	<a href="/topictree/slug/stories-and-literature" class="btn btn-primary btn-lg" role="button">Back to top</a> 
+
+</div>
+{% endblock %}

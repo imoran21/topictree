@@ -6,7 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'myapp.views.home', name='home'),
-    url(r'^topictree/', include('myapp.urls')),
+	url(r'^slug/(?P<slug>[-\w]+)/$', 'myapp.views.slug', name='slugview'),
 
-    url(r'^admin/', include(admin.site.urls)),
+
 )
